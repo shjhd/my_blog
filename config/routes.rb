@@ -1,6 +1,14 @@
 MyBlog::Application.routes.draw do
+  resources :users
+
   resources :posts
 
+  root to: 'posts#index'
+  match '/signup',  to: 'users#new'
+  match '/',  to: 'posts#index'
+  match '/new', to: 'posts#new'
+  match '/show', to: 'posts#show'
+  match '/edit', to: 'posts#edit'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

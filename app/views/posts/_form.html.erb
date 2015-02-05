@@ -1,5 +1,6 @@
 <%= form_for(@post) do |f| %>
   <% if @post.errors.any? %>
+
     <div id="error_explanation">
       <h2><%= pluralize(@post.errors.count, "error") %> prohibited this post from being saved:</h2>
 
@@ -11,15 +12,18 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :title %><br />
-    <%= f.text_field :title %>
+  <div class="box">
+  <div class="form-group">
+    <%= f.label :title %></br>
+    <%= f.text_field( :title, :placeholder=>"title", :size =>"80" ) %>
+    </div>
+  <div class="form-group">
+    <%= f.label :content %></br>
+    <%= f.text_area( :content, :placeholder=>"content", :size =>"80x20" ) %>
   </div>
-  <div class="field">
-    <%= f.label :content %><br />
-    <%= f.text_area :content %>
+  <div class="form-group">
+    <%= f.submit :class=>"btn btn-primary" %>
   </div>
-  <div class="actions">
-    <%= f.submit %>
   </div>
+
 <% end %>
