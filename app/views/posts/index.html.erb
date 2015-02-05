@@ -6,18 +6,12 @@
 <div class="container">
 <div class="row">
   <div class="col-sm-2 col-md-3 col-lg-4">
-    <form>
-      <div class="form-group">
-        <label for="homename">name</label>
-        <input type="name" class="form-control" id="name" placeholder="name">
-      </div>
-      <div class="form-group">
-        <label for="homepassword">Password</label>
-        <input type="password" class="form-control" id="homepassword" placeholder="Password">
-      </div>
-        <button type="submit" class="btn btn-primary">登入</button>
-        <%= link_to "注册", signup_path, class: "btn btn-primary" %>
-    </form>
+    <%= bootstrap_form_for(:session, url: sessions_path) do |f| %>
+      <%= f.text_field :name %>
+      <%= f.password_field :password %>
+      <%= f.submit "登入", class: "btn btn-primary btn-home" %>
+      <%= link_to "注册", signup_path, class: "btn btn-primary btn-home2" %>
+    <% end %>
   </div>
   <div class="col-sm-10 col-md-9 col-lg-8">
     <div class="content">
