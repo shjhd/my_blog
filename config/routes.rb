@@ -4,12 +4,11 @@ MyBlog::Application.routes.draw do
   resources :posts
   resources :sessions, only: [:new, :create, :destroy]
 
-  match '/signup', to: 'users#new'
   match '/signin', to: 'sessions#new'
   match '/signout', to: 'sessions#destroy', via: :delete
 
   root to: 'posts#index'
-  match '/signup',  to: 'users#new'
+  match '/newuser',  to: 'users#new'
   match '/',  to: 'posts#index'
   match '/new', to: 'posts#new'
   match '/show', to: 'posts#show'
