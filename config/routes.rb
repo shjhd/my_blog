@@ -13,6 +13,8 @@ MyBlog::Application.routes.draw do
   match '/new', to: 'posts#new'
   match '/show', to: 'posts#show'
   match '/edit', to: 'posts#edit'
+  match '/about', to: 'posts#about'
+  match '/contact', to: 'posts#contact'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

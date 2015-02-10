@@ -1,8 +1,10 @@
 class PostsController < ApplicationController
   # GET /posts
   # GET /posts.json
+  before_filter :signed_in_user, only: [:new,:create,:destroy,:edit, :update]
+
   def index
-    @posts = Post.order('created_at desc').all
+    @posts = Post.order('created_at desc').paginate(page: params[:page]).per_page(5)
 
     respond_to do |format|
       format.html # index.html.erb
@@ -75,4 +77,11 @@ class PostsController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+  private
+
+    def signed_in_user
+      redirect_to signin_path, notice: "Please sign in." unless signed_in?
+    end
+
 end

@@ -1,16 +1,14 @@
 <% provide(:title, "Show post") %>
 <p id="notice"><%= notice %></p>
-
-<p>
-  <b>Title:</b>
-  <%= @post.title %>
-</p>
-
-<p>
-  <b>Content:</b>
+<div class="post-img">
+  <h1>Title:<%= @post.title %></h1>
+  <hr class="small">
+  <h2><%= l @post.created_at, format: :short %></h2>
+</div>
+<div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+<p class="content-text">
   <%= @post.content %>
 </p>
-
-
 <%= link_to 'Edit', edit_post_path(@post) %> |
 <%= link_to 'Back', root_path %>
+</div>
